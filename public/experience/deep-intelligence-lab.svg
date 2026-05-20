@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#1e1e1e"/>
+  <path d="M74 262c80-132 159-132 238 0s159 132 238 0" fill="none" stroke="#569cd6" stroke-width="8"/>
+  <circle cx="160" cy="122" r="48" fill="#252526" stroke="#9cdcfe" stroke-width="4"/>
+  <circle cx="320" cy="180" r="58" fill="#252526" stroke="#c586c0" stroke-width="4"/>
+  <circle cx="480" cy="122" r="48" fill="#252526" stroke="#6a9955" stroke-width="4"/>
+  <text x="48" y="316" fill="#d4d4d4" font-family="Consolas, monospace" font-size="30">Deep Intelligence Lab</text>
+</svg>

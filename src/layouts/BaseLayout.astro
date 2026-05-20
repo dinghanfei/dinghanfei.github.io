@@ -1,0 +1,38 @@
+---
+import "@fontsource/cascadia-code/latin-400.css";
+import "@fontsource/cascadia-code/latin-600.css";
+import "@fontsource/cascadia-code/latin-700.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.site?.toString()} />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{title}</title>
+    <script is:inline>
+      const storedTheme = localStorage.getItem("theme");
+      document.documentElement.dataset.theme = storedTheme || "dark";
+    </script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <slot />
+    <script is:inline src="/scripts/site.js"></script>
+  </body>
+</html>

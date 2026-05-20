@@ -1,0 +1,206 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import profile from "../data/profile.json";
+import cv from "../data/cv.json";
+
+const pageTitle = `${profile.name} | Academic Portfolio`;
+const pageDescription = profile.summary;
+const [beforeAdvisor, afterAdvisor] = profile.summary.split(profile.advisor.name);
+const projectItems = (await getCollection("projects")).sort((a, b) => b.data.order - a.data.order);
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <header class="site-header">
+    <a class="brand" href="#about" aria-label={`${profile.name} home`}>
+      <span class="brand-mark">
+        <img src={profile.brandIcon} alt="" aria-hidden="true" />
+      </span>
+      <span>{profile.name}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#cv">CV</a>
+      <a href="#projects">Project</a>
+      <a href="#research">Research</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="sun" aria-hidden="true">☼</span>
+        <span class="moon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-grid page-section" id="about">
+      <div class="hero-copy reveal">
+        <div class="terminal-name parallax-soft" aria-label={profile.name}>
+          <div class="terminal-bar" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p>dinghanfei@portfolio: ~/about</p>
+          </div>
+          <div class="terminal-meta" aria-hidden="true">
+            <span>GNU bash, version portfolio-1.0</span>
+            <span>Last login: academic portfolio</span>
+          </div>
+          <pre aria-hidden="true">
+ ____  ___ _   _  ____ _   _   _    _   _ _____ _____ ___ 
+|  _ \|_ _| \ | |/ ___| | | | / \  | \ | |  ___| ____|_ _|
+| | | || ||  \| | |  _| |_| |/ _ \ |  \| | |_  |  _|  | | 
+| |_| || || |\  | |_| |  _  / ___ \| |\  |  _| | |___ | | 
+|____/|___|_| \_|\____|_| |_/_/   \_\_| \_|_|   |_____|___|
+          </pre>
+          <p class="terminal-line">
+            <span class="prompt">dhf@portfolio:~$</span>
+            <span class="typed-text" data-typed-text="whoami|dinghanfei|丁翰飞|researcher|builder"></span>
+            <span class="cursor" aria-hidden="true"></span>
+          </p>
+        </div>
+        <p class="lead">
+          {beforeAdvisor}
+          <a href={profile.advisor.href} target="_blank" rel="noreferrer">{profile.advisor.name}</a>
+          {afterAdvisor}
+        </p>
+        <div class="contact-dock" aria-label="Contact and profile links">
+          {profile.contactActions.map((action) => (
+            <a
+              class="dock-button"
+              href={action.href}
+              target={action.external ? "_blank" : undefined}
+              rel={action.external ? "noreferrer" : undefined}
+              aria-label={action.label}
+            >
+              <img class="dock-icon" src={action.icon} alt="" aria-hidden="true" />
+              <span>{action.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <aside class="identity-card reveal parallax-soft" aria-label="Profile snapshot">
+        <div class="portrait">
+          <img src={profile.photo.src} alt={profile.photo.alt} />
+        </div>
+        <p class="location">{profile.location}</p>
+      </aside>
+    </section>
+
+    <section class="cv-section page-section" id="cv">
+      <div class="section-heading reveal">
+        <p class="eyebrow">CV</p>
+        <h3>A summary of my academic background, experience, skills, and honors.</h3>
+      </div>
+      <div class="cv-stack">
+        <article class="cv-panel reveal">
+          <h3>Experience</h3>
+          {cv.experience.map((item) => (
+            <div class="cv-item experience-item">
+              {item.image && (
+                <img class="experience-image" src={item.image.src} alt={item.image.alt} loading="lazy" />
+              )}
+              <div class="experience-copy">
+                <p class="period">{item.period}</p>
+                <h4>{item.role}</h4>
+                <p class="place">{item.place}</p>
+                {item.meta && <p class="meta">{item.meta}</p>}
+                <p>{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </article>
+
+        <article class="cv-panel education-panel reveal">
+          <h3>Education</h3>
+          <div class="education-timeline">
+            {cv.education.map((item) => (
+              <div class="timeline-item">
+                <p class="period">{item.period}</p>
+                <h4>{item.role}</h4>
+                <p class="place">{item.place}</p>
+                {item.detail && <p>{item.detail}</p>}
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="cv-panel reveal">
+          <h3>Awards & Honors</h3>
+          {cv.awardGroups.map((group) => (
+            <div class="award-group">
+              <h4>{group.title}</h4>
+              <div class="award-list">
+                {group.items.map((item) => (
+                  <div class="award-row">
+                    <span class="award-date">{item.year}</span>
+                    <span>{item.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </article>
+
+        <article class="cv-panel reveal">
+          <h3>Skills & Interests</h3>
+          <div class="skill-grid">
+            {cv.skills.map((skill) => (
+              <span class="skill-pill">
+                <span class="skill-emoji" aria-hidden="true">{skill.icon}</span>
+                <span>
+                  <strong>{skill.label}</strong>
+                  <small>{skill.items}</small>
+                </span>
+              </span>
+            ))}
+          </div>
+          <a class="button primary" href={profile.cvPath}>Download full CV</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section page-section" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Projects</p>
+        <h3>Selected projects in computer science and engineering.</h3>
+      </div>
+      {projectItems.length > 0 && (
+        <div class="project-grid">
+          {projectItems.map((project) => (
+            <article class={`project-card ${project.data.accent} reveal`}>
+              <a class="project-visual" href={`/projects/${project.id}/`} aria-label={`View ${project.data.title} details`}>
+                <img src={project.data.image.src} alt={project.data.image.alt} loading="lazy" />
+                <span>{project.data.year}</span>
+              </a>
+              <div class="project-body">
+                <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
+                {project.data.subtitle && <p class="project-subtitle">{project.data.subtitle}</p>}
+                <p>{project.data.summary}</p>
+                <div class="tag-row">
+                  {project.data.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <div class="project-links">
+                  <a href={`/projects/${project.id}/`}>Details</a>
+                  {project.data.links.map((link) => (
+                    <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <section class="research-band page-section" id="research">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Research</p>
+        <h3>To be continued...</h3>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© {new Date().getFullYear()} {profile.name}. Built with Astro and deployed on GitHub Pages.</p>
+  </footer>
+</BaseLayout>

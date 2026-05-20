@@ -1,0 +1,40 @@
+{
+  "name": "dinghanfei.github.io",
+  "version": "1.0.0",
+  "description": "Academic portfolio for Ding Hanfei.",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinghanfei/dinghanfei.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "academic",
+    "astro",
+    "github-pages"
+  ],
+  "author": "Ding Hanfei",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/dinghanfei/dinghanfei.github.io/issues"
+  },
+  "homepage": "https://github.com/dinghanfei/dinghanfei.github.io#readme",
+  "overrides": {
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "astro": "^6.3.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@fontsource/cascadia-code": "^5.2.3"
+  }
+}

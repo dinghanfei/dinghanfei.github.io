@@ -1,0 +1,129 @@
+{
+  "experience": [
+    {
+      "period": "Sep. 2023 - Jun. 2025",
+      "role": "Undergraduate Member, Deep Intelligence Lab",
+      "place": "Harbin Engineering University",
+      "meta": "Supervisor: Prof. Rongsheng Li",
+      "detail": "Joined the Deep Intelligence Lab as an undergraduate member, focusing on foundational learning in deep learning. Engaged in technical reading, research-oriented learning, and academic discussions under the supervision of Prof. Rongsheng Li.",
+      "image": {
+        "src": "/experience/deep-intelligence-lab.svg",
+        "alt": "Deep Intelligence Lab placeholder image"
+      }
+    },
+    {
+      "period": "Jul. 2023",
+      "role": "Summer Research Participant, Computer Vision Program",
+      "place": "National University of Singapore",
+      "detail": "Completed a Masked and Unmasked Face Recognition project with Machine Learning and OpenCV.",
+      "image": {
+        "src": "/experience/nus-summer-workshop.png",
+        "alt": "Computer vision program placeholder image"
+      }
+    },
+    {
+      "period": "Oct. 2021 - 2022",
+      "role": "Mechanical Design Member, EV Association",
+      "place": "Harbin Engineering University",
+      "detail": "Contributed to mechanical structure design for intelligent vehicle and underwater robot projects as a member of the mechanical design group. Developed early hands-on engineering experience through team-based design and fabrication work.",
+      "image": {
+        "src": "/experience/ev2.jpg",
+        "alt": "Mechanical design placeholder image"
+      }
+    }
+  ],
+  "education": [
+    {
+      "role": "M.S. in Computer Science",
+      "place": "School of Information Science and Technology, ShanghaiTech University",
+      "period": "2025.09 - Present",
+      "detail": ""
+    },
+    {
+      "role": "B.Eng. in Computer Science",
+      "place": "College of Computer Science and Technology, Harbin Engineering University",
+      "period": "2022.09 - 2025.06",
+      "detail": "Initially admitted to the College of Materials Science and Technology in 2021, and later transferred to the College of Computer Science and Technology in 2022, ranking 2nd in the transfer evaluation."
+    }
+  ],
+  "awardGroups": [
+    {
+      "title": "Competitions",
+      "items": [
+        {
+          "year": "2024.07",
+          "title": "🥇First Prize, Mathematical Modeling League of Three Northeastern Provinces"
+        },
+        {
+          "year": "2024.05",
+          "title": "🥈Second Prize, Lanqiao Cup Software Competition, Provincial Division"
+        },
+        {
+          "year": "2023.07",
+          "title": "🥈Second Prize, Mathematical Modeling League of Three Northeastern Provinces"
+        },
+        {
+          "year": "2022.10",
+          "title": "🥉Third Prize, National English Competition for College Students, Category C"
+        },
+        {
+          "year": "2022.09",
+          "title": "🥇First Prize, Contemporary Undergraduate Mathematical Contest in Modeling, Heilongjiang Division"
+        }
+      ]
+    },
+    {
+      "title": "Scholarships & Honors",
+      "items": [
+        {
+          "year": "2025.06",
+          "title": "🏆Outstanding Undergraduate Thesis Award, Harbin Engineering University, 2025"
+        },
+        {
+          "year": "2024.09",
+          "title": "🏆Recommended Admission to ShanghaiTech University!!!"
+        },
+        {
+          "year": "Multiple Years",
+          "title": "🏅Outstanding Student Scholarship, Harbin Engineering University"
+        },
+        {
+          "year": "2021 - 2022",
+          "title": "🎖️Merit Student, Harbin Engineering University"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "label": "Programming",
+      "icon": "💻",
+      "items": "C/C++, Python, Java"
+    },
+    {
+      "label": "Tools & Platforms",
+      "icon": "🧰",
+      "items": "Git, Docker, Maven"
+    },
+    {
+      "label": "Frameworks",
+      "icon": "🔥",
+      "items": "PyTorch"
+    },
+    {
+      "label": "Languages",
+      "icon": "🌐",
+      "items": "English (academic reading & writing)"
+    },
+    {
+      "label": "Strengths",
+      "icon": "✨",
+      "items": "Logical thinking, efficient task organization, team leadership, collaboration, and communication skills."
+    },
+    {
+      "label": "Interests",
+      "icon": "🏊",
+      "items": "Swimming, Fitness, Badminton"
+    }
+  ]
+}
