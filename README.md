@@ -1,41 +1,13 @@
-# Ding Hanfei Academic Portfolio
+# Education
 
-An English-first academic portfolio built with Astro and deployed to GitHub Pages.
+## M.S. in Computer Science
 
-## Local Development
+School of Information Science and Technology, ShanghaiTech University  
+2025.09 - Present
 
-```sh
-npm install
-npm run dev
-```
+## B.Eng. in Computer Science
 
-## Common Commands
+College of Computer Science and Technology, Harbin Engineering University  
+2022.09 - 2025.06
 
-```sh
-npm run check
-npm run build
-npm run preview
-```
-
-## Content Editing
-
-Most visible content lives in `src/data/`:
-
-- `profile.json`: name, introduction, top icon, portrait image, contact links
-- `src/content/projects/*.md`: project cards and project detail pages
-- `cv.json`: education, experience, awards, skills, and interests
-
-Replace `public/cv/ding-hanfei-cv.pdf` with the final CV when ready.
-
-## Where To Customize Your Information
-
-- Homepage name/intro/contact: edit `src/data/profile.json`.
-- Top-left page icon: edit `brandIcon` in `src/data/profile.json`, or replace `public/icons/site-mark.svg`.
-- About portrait image: edit `photo.src` in `src/data/profile.json`, or replace `public/profile/avatar.svg`.
-- The terminal typing words: edit `data-typed-text` in `src/pages/index.astro`.
-- CV content: edit `src/data/cv.json`.
-- Project cards and detail pages: add or edit Markdown files in `src/content/projects/`.
-- Research title/content: edit the `#research` section in `src/pages/index.astro`.
-- Contact icons: replace SVG files in `public/icons/`, or change the icon paths in `profile.json`.
-- CV PDF: replace `public/cv/ding-hanfei-cv.pdf`.
-- Colors, spacing, font, and scroll effects: edit `src/styles/global.css`.
+Initially admitted to the College of Materials Science and Technology in 2021, and later transferred to the College of Computer Science and Technology in 2022, ranking 2nd in the transfer evaluation.
