@@ -3,6 +3,16 @@
   "location": "Shanghai, China",
   "email": "dinghf2025@shanghaitech.edu.cn",
   "cvPath": "/cv/ding-hanfei-cv.pdf",
+  "transcripts": [
+    {
+      "label": "Download Chinese Transcript",
+      "href": "/cv/transcript-cn.pdf"
+    },
+    {
+      "label": "Download English Transcript",
+      "href": "/cv/transcript-en.pdf"
+    }
+  ],
   "brandIcon": "/icons/pageicon.jpg",
   "photo": {
     "src": "/profile/dhf.png",
