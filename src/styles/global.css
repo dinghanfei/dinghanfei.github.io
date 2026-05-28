@@ -469,18 +469,6 @@ h4 {
   transform: translateY(-2px);
 }
 
-.button.secondary {
-  border-color: var(--line);
-  background: var(--editor-2);
-  color: var(--text);
-}
-
-.button.secondary:hover {
-  border-color: color-mix(in srgb, var(--accent), transparent 40%);
-  background: var(--surface-strong);
-  color: var(--accent-strong);
-}
-
 .document-actions {
   display: flex;
   flex-wrap: wrap;

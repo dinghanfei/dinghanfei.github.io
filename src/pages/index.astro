@@ -157,7 +157,7 @@ const projectItems = (await getCollection("projects")).sort((a, b) => b.data.ord
           <div class="document-actions">
             <a class="button primary" href={profile.cvPath}>Download full CV</a>
             {profile.transcripts.map((item) => (
-              <a class="button secondary" href={item.href}>{item.label}</a>
+              <a class="button primary" href={item.href}>{item.label}</a>
             ))}
           </div>
         </article>
