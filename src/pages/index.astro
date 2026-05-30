@@ -155,7 +155,8 @@ const projectItems = (await getCollection("projects")).sort((a, b) => b.data.ord
             ))}
           </div>
           <div class="document-actions">
-            <a class="button primary" href={profile.cvPath}>Download full CV</a>
+            <a class="button primary" href={profile.cvEnglishPath}>Download full CV (English)</a>
+            <a class="button primary" href={profile.cvChinesePath}>Download full CV (Chinese, old version)</a>
             {profile.transcripts.map((item) => (
               <a class="button primary" href={item.href}>{item.label}</a>
             ))}

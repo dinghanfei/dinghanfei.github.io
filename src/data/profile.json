@@ -2,7 +2,9 @@
   "name": "Ding Hanfei",
   "location": "Shanghai, China",
   "email": "dinghf2025@shanghaitech.edu.cn",
-  "cvPath": "/cv/ding-hanfei-cv.pdf",
+  "cvPath": "/cv/ding-hanfei-cv-en.pdf",
+  "cvEnglishPath": "/cv/ding-hanfei-cv-en.pdf",
+  "cvChinesePath": "/cv/ding-hanfei-cv.pdf",
   "transcripts": [
     {
       "label": "Download Chinese Transcript",
@@ -34,6 +36,12 @@
       "label": "Email",
       "href": "mailto:dinghf2025@shanghaitech.edu.cn",
       "icon": "/icons/mail.svg",
+      "external": false
+    },
+    {
+      "label": "CV",
+      "href": "/cv/ding-hanfei-cv-en.pdf",
+      "icon": "/icons/cv.svg",
       "external": false
     }
   ]
