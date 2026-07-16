@@ -34,6 +34,9 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
 
   <main id="top">
     <section class="hero section-grid page-section" id="about">
+      <div class="section-heading hero-heading reveal">
+        <p class="eyebrow">About</p>
+      </div>
       <div class="hero-copy reveal">
         <div class="terminal-name parallax-soft" aria-label={profile.name}>
           <div class="terminal-bar" aria-hidden="true">
@@ -42,22 +45,46 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
             <span></span>
             <p>dinghanfei@portfolio: ~/about</p>
           </div>
-          <div class="terminal-meta" aria-hidden="true">
-            <span>GNU bash, version portfolio-1.0</span>
-            <span>Last login: academic portfolio</span>
+          <div class="cli-session" aria-live="polite">
+            <p class="cli-login">Last login: today on portfolio</p>
+
+            <div class="cli-step">
+              <p class="terminal-line">
+                <span class="prompt">dhf@portfolio:~$</span>
+                <span class="cli-command" data-cli-command="whoami --verbose">whoami --verbose</span>
+                <span class="cursor cli-command-cursor" aria-hidden="true"></span>
+              </p>
+              <div class="cli-output" data-cli-output>
+                <pre class="ansi-shadow" aria-label="DINGHANFEI">
+██████╗ ██╗███╗   ██╗ ██████╗ ██╗  ██╗ █████╗ ███╗   ██╗███████╗███████╗██╗
+██╔══██╗██║████╗  ██║██╔════╝ ██║  ██║██╔══██╗████╗  ██║██╔════╝██╔════╝██║
+██║  ██║██║██╔██╗ ██║██║  ███╗███████║███████║██╔██╗ ██║█████╗  █████╗  ██║
+██║  ██║██║██║╚██╗██║██║   ██║██╔══██║██╔══██║██║╚██╗██║██╔══╝  ██╔══╝  ██║
+██████╔╝██║██║ ╚████║╚██████╔╝██║  ██║██║  ██║██║ ╚████║██║     ███████╗██║
+╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝
+                </pre>
+              </div>
+            </div>
+
+            <div class="cli-step">
+              <p class="terminal-line">
+                <span class="prompt">dhf@portfolio:~$</span>
+                <span class="cli-command" data-cli-command="cat ./focus.txt">cat ./focus.txt</span>
+                <span class="cursor cli-command-cursor" aria-hidden="true"></span>
+              </p>
+              <div class="cli-output cli-focus" data-cli-output>
+                <p><span class="cli-key">role</span> researcher · builder</p>
+                <p><span class="cli-key">focus</span> computer science · artificial intelligence</p>
+                <p><span class="cli-key">status</span> <span class="cli-online">● online</span></p>
+              </div>
+            </div>
+
+            <p class="terminal-line cli-ready" data-cli-ready>
+              <span class="prompt">dhf@portfolio:~$</span>
+              <span class="typed-text" data-typed-text="whoami|dinghanfei|丁翰飞|researcher|builder"></span>
+              <span class="cursor" aria-hidden="true"></span>
+            </p>
           </div>
-          <pre aria-hidden="true">
- ____  ___ _   _  ____ _   _   _    _   _ _____ _____ ___ 
-|  _ \|_ _| \ | |/ ___| | | | / \  | \ | |  ___| ____|_ _|
-| | | || ||  \| | |  _| |_| |/ _ \ |  \| | |_  |  _|  | | 
-| |_| || || |\  | |_| |  _  / ___ \| |\  |  _| | |___ | | 
-|____/|___|_| \_|\____|_| |_/_/   \_\_| \_|_|   |_____|___|
-          </pre>
-          <p class="terminal-line">
-            <span class="prompt">dhf@portfolio:~$</span>
-            <span class="typed-text" data-typed-text="whoami|dinghanfei|丁翰飞|researcher|builder"></span>
-            <span class="cursor" aria-hidden="true"></span>
-          </p>
         </div>
         <p class="lead">
           {beforeAdvisor}
@@ -91,7 +118,6 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
     <section class="cv-section page-section" id="cv">
       <div class="section-heading reveal">
         <p class="eyebrow">CV</p>
-        <h3>A summary of my academic background, experience, skills, and honors.</h3>
       </div>
       <div class="cv-stack">
         <article class="cv-panel reveal">
@@ -170,7 +196,6 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
     <section class="content-section page-section" id="projects">
       <div class="section-heading reveal">
         <p class="eyebrow">Projects</p>
-        <h3>Selected projects in computer science and engineering.</h3>
       </div>
       {projectItems.length > 0 && (
         <div class="project-grid">
@@ -203,7 +228,6 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
     <section class="research-band page-section" id="research">
       <div class="section-heading reveal">
         <p class="eyebrow">Research</p>
-        <h3>Selected research experience in computer vision and machine learning.</h3>
       </div>
       {researchItems.length > 0 && (
         <div class="project-grid">
