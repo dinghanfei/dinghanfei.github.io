@@ -1,9 +1,10 @@
 ---
 title: "Masked Face Recognition with Machine Learning and OpenCV"
-subtitle: "National University of Singapore, Computer Vision Summer Research Program"
-summary: "A machine learning and OpenCV-based project for masked and unmasked face recognition, designed to address the reduced accuracy of traditional face recognition systems when users wear facial masks."
+subtitle: "Team Leader, Visual Computing Summer Research Program, National University of Singapore"
+summary: "Developed a machine learning and OpenCV-based face recognition system for both masked and unmasked faces, addressing the performance degradation of conventional face recognition methods under facial occlusion."
 year: "Jul. 2023"
 order: 202307
+section: "research"
 image:
   src: "/projects/masked-face-recognition/nus-summer-workshop.jpg"
   alt: "NUS computer vision summer research program"
@@ -23,7 +24,14 @@ links:
     href: "/projects/masked-face-recognition/slides.pdf"
 ---
 
-## Implementation
-The project constructed a masked-face dataset by extracting facial landmarks with dlib, processed facial features using Gaussian blur, mean filtering, and SIFT, and trained recognition models with SVM, KNN, and Random Forest. A final decision model was developed to improve recognition reliability.
-## Results
-99% stranger interception rate, 92% registered-user pass rate, and 86% overall recognition accuracy.
+## Overview
+
+Developed a machine learning and OpenCV-based face recognition system for both masked and unmasked faces, addressing the performance degradation of conventional face recognition methods under facial occlusion.
+
+## Dataset and Feature Extraction
+
+Constructed a masked-face dataset using facial landmarks extracted with dlib, and processed facial features with Gaussian blur, mean filtering, and SIFT-based feature extraction.
+
+## Models and Results
+
+Trained and compared SVM, KNN, and Random Forest classifiers, and designed a final decision model that achieved a 100% stranger interception rate, an 86% registered-user pass rate, and 85% overall recognition accuracy.

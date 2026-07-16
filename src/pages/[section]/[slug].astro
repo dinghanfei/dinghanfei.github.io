@@ -8,13 +8,19 @@ type Project = CollectionEntry<"projects">;
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
-    params: { slug: project.id },
+    params: {
+      section: project.data.section === "research" ? "research" : "projects",
+      slug: project.id,
+    },
     props: { project },
   }));
 }
 
 const { project } = Astro.props as { project: Project };
 const { Content } = await render(project);
+const isResearch = project.data.section === "research";
+const backHref = isResearch ? "/#research" : "/#projects";
+const backLabel = isResearch ? "research" : "projects";
 ---
 
 <BaseLayout title={`${project.data.title} | ${profile.name}`} description={project.data.summary}>
@@ -25,9 +31,10 @@ const { Content } = await render(project);
       </span>
       <span>{profile.name}</span>
     </a>
-    <nav class="nav-links" aria-label="Project navigation">
-      <a href="/#projects">Projects</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/#about">About</a>
       <a href="/#cv">CV</a>
+      <a href="/#projects">Project</a>
       <a href="/#research">Research</a>
       <button class="theme-toggle" type="button" aria-label="Toggle color theme">
         <span class="sun" aria-hidden="true">☼</span>
@@ -38,7 +45,7 @@ const { Content } = await render(project);
 
   <main>
     <article class="project-detail page-section">
-      <a class="back-link" href="/#projects">← Back to projects</a>
+      <a class="back-link" href={backHref}>← Back to {backLabel}</a>
       <div class="project-detail-hero reveal">
         <div>
           <p class="eyebrow">{project.data.year}</p>

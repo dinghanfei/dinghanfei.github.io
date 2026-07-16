@@ -34,12 +34,6 @@
   ],
   "education": [
     {
-      "role": "M.S. in Computer Science",
-      "place": "School of Information Science and Technology, ShanghaiTech University",
-      "period": "2025.09 - Present",
-      "detail": ""
-    },
-    {
       "role": "B.Eng. in Computer Science",
       "place": "College of Computer Science and Technology, Harbin Engineering University",
       "period": "2022.09 - 2025.06",
@@ -68,7 +62,7 @@
         },
         {
           "year": "2022.09",
-          "title": "🥇First Prize, Contemporary Undergraduate Mathematical Contest in Modeling, Heilongjiang Division"
+          "title": "🥇First Prize, China Undergraduate Mathematical Contest in Modeling, Heilongjiang Division"
         }
       ]
     },
@@ -78,10 +72,6 @@
         {
           "year": "2025.06",
           "title": "🏆Outstanding Undergraduate Thesis Award, Harbin Engineering University, 2025"
-        },
-        {
-          "year": "2024.09",
-          "title": "🏆Recommended Admission to ShanghaiTech University!!!"
         },
         {
           "year": "Multiple Years",
@@ -103,12 +93,12 @@
     {
       "label": "Tools & Platforms",
       "icon": "🧰",
-      "items": "Git, Docker, Maven"
+      "items": "Git, Docker, Linux, MySQL, Maven"
     },
     {
-      "label": "Frameworks",
+      "label": "Frameworks & Libraries",
       "icon": "🔥",
-      "items": "PyTorch"
+      "items": "PyTorch, OpenCV, NumPy, pandas, scikit-learn, Matplotlib, Flask"
     },
     {
       "label": "Languages",
@@ -123,7 +113,7 @@
     {
       "label": "Interests",
       "icon": "🏊",
-      "items": "Swimming, Fitness, Badminton"
+      "items": "Swimming, badminton, fitness training, LEGO model building"
     }
   ]
 }

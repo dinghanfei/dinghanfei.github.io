@@ -10,6 +10,7 @@ const projects = defineCollection({
     summary: z.string(),
     year: z.string(),
     order: z.number(),
+    section: z.enum(["project", "research"]).default("project"),
     image: z.object({
       src: z.string(),
       alt: z.string(),

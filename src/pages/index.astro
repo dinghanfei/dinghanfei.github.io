@@ -7,7 +7,9 @@ import cv from "../data/cv.json";
 const pageTitle = `${profile.name} | Academic Portfolio`;
 const pageDescription = profile.summary;
 const [beforeAdvisor, afterAdvisor] = profile.summary.split(profile.advisor.name);
-const projectItems = (await getCollection("projects")).sort((a, b) => b.data.order - a.data.order);
+const portfolioItems = (await getCollection("projects")).sort((a, b) => b.data.order - a.data.order);
+const projectItems = portfolioItems.filter((item) => item.data.section === "project");
+const researchItems = portfolioItems.filter((item) => item.data.section === "research");
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -201,8 +203,34 @@ const projectItems = (await getCollection("projects")).sort((a, b) => b.data.ord
     <section class="research-band page-section" id="research">
       <div class="section-heading reveal">
         <p class="eyebrow">Research</p>
-        <h3>To be continued...</h3>
+        <h3>Selected research experience in computer vision and machine learning.</h3>
       </div>
+      {researchItems.length > 0 && (
+        <div class="project-grid">
+          {researchItems.map((research) => (
+            <article class={`project-card ${research.data.accent} reveal`}>
+              <a class="project-visual" href={`/research/${research.id}/`} aria-label={`View ${research.data.title} details`}>
+                <img src={research.data.image.src} alt={research.data.image.alt} loading="lazy" />
+                <span>{research.data.year}</span>
+              </a>
+              <div class="project-body">
+                <h3><a href={`/research/${research.id}/`}>{research.data.title}</a></h3>
+                {research.data.subtitle && <p class="project-subtitle">{research.data.subtitle}</p>}
+                <p>{research.data.summary}</p>
+                <div class="tag-row">
+                  {research.data.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <div class="project-links">
+                  <a href={`/research/${research.id}/`}>Details</a>
+                  {research.data.links.map((link) => (
+                    <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
     </section>
   </main>
 

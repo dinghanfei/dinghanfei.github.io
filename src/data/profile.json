@@ -1,7 +1,7 @@
 {
   "name": "Ding Hanfei",
   "location": "Shanghai, China",
-  "email": "dinghf2025@shanghaitech.edu.cn",
+  "email": "dinghanfei1127@163.com",
   "cvPath": "/cv/ding-hanfei-cv-en.pdf",
   "cvEnglishPath": "/cv/ding-hanfei-cv-en.pdf",
   "cvChinesePath": "/cv/ding-hanfei-cv.pdf",
@@ -20,7 +20,7 @@
     "src": "/profile/dhf.png",
     "alt": "Portrait of Ding Hanfei"
   },
-  "summary": "I received my B.Eng. degree in Computer Science from Harbin Engineering University, where I worked under the supervision of Prof. Rongsheng Li. Currently, I am pursuing my M.S. degree at the School of Information Science and Technology (SIST), ShanghaiTech University. My academic training is grounded in mathematics and computer science, with 90+ scores in all mathematics courses and 27 core required courses.",
+  "summary": "I received my B.Eng. degree in Computer Science from Harbin Engineering University, where I worked under the supervision of Prof. Rongsheng Li. My academic training is grounded in mathematics and computer science, with 92+ scores in all mathematics courses and 30 core required courses.",
   "advisor": {
     "name": "Prof. Rongsheng Li",
     "href": "https://faculty.hrbeu.edu.cn/lirongsheng1"
@@ -34,7 +34,7 @@
     },
     {
       "label": "Email",
-      "href": "mailto:dinghf2025@shanghaitech.edu.cn",
+      "href": "mailto:dinghanfei1127@163.com",
       "icon": "/icons/mail.svg",
       "external": false
     },
