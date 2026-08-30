@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import profile from "../data/profile.json";
 import cv from "../data/cv.json";
+import notesInfo from "../data/notes.json";
 
 const pageTitle = `${profile.name} | Academic Portfolio`;
 const pageDescription = profile.summary;
@@ -10,6 +11,9 @@ const [beforeAdvisor, afterAdvisor] = profile.summary.split(profile.advisor.name
 const portfolioItems = (await getCollection("projects")).sort((a, b) => b.data.order - a.data.order);
 const projectItems = portfolioItems.filter((item) => item.data.section === "project");
 const researchItems = portfolioItems.filter((item) => item.data.section === "research");
+const noteItems = (await getCollection("notes")).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title, "en", { sensitivity: "base" }),
+);
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -25,6 +29,7 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
       <a href="#cv">CV</a>
       <a href="#projects">Project</a>
       <a href="#research">Research</a>
+      <a href="#notes">Notes</a>
       <button class="theme-toggle" type="button" aria-label="Toggle color theme">
         <span class="sun" aria-hidden="true">☼</span>
         <span class="moon" aria-hidden="true">◐</span>
@@ -125,7 +130,12 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
           {cv.experience.map((item) => (
             <div class="cv-item experience-item">
               {item.image && (
-                <img class="experience-image" src={item.image.src} alt={item.image.alt} loading="lazy" />
+                <img
+                  class:list={["experience-image", { "lab-image": item.image.src.includes("deep-intelligence-lab") }]}
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  loading="lazy"
+                />
               )}
               <div class="experience-copy">
                 <p class="period">{item.period}</p>
@@ -169,24 +179,60 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
           ))}
         </article>
 
-        <article class="cv-panel reveal">
-          <h3>Skills & Interests</h3>
-          <div class="skill-grid">
-            {cv.skills.map((skill) => (
-              <span class="skill-pill">
-                <span class="skill-emoji" aria-hidden="true">{skill.icon}</span>
-                <span>
-                  <strong>{skill.label}</strong>
-                  <small>{skill.items}</small>
-                </span>
-              </span>
-            ))}
+        <div class="cv-dual-grid">
+          <article class="cv-panel reveal">
+            <h3>Skills</h3>
+            <div class="skill-category-grid">
+              {cv.skills.map((skill) => (
+                <div class="skill-category">
+                  <div class="skill-category-title">
+                    <h4>{skill.label}</h4>
+                  </div>
+                  <div class="skill-card-grid">
+                    {skill.items.map((item) => (
+                      <div class="skill-card">
+                        <span
+                          class="skill-logo"
+                          style={`--skill-icon: url(${item.icon}); --skill-color: ${item.color};`}
+                          aria-hidden="true"
+                        ></span>
+                        <strong>{item.label}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article class="cv-panel reveal">
+            <h3>Interests</h3>
+            <div class="interest-grid">
+              {cv.interests.map((interest) => (
+                <div class="interest-card">
+                  <span aria-hidden="true">{interest.icon}</span>
+                  <strong>{interest.label}</strong>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+
+        <article class="cv-panel document-panel reveal">
+          <div class="document-panel-copy">
+            <span class="document-icon" aria-hidden="true">
+              <img src="/icons/cv.svg" alt="" />
+            </span>
+            <div>
+              <h3>CV & Academic Documents</h3>
+              <p>Download the latest English CV or access supporting academic documents.</p>
+            </div>
           </div>
           <div class="document-actions">
-            <a class="button primary" href={profile.cvEnglishPath}>Download full CV (English)</a>
-            <a class="button primary" href={profile.cvChinesePath}>Download full CV (Chinese, old version)</a>
+            <a class="button primary" href={profile.cvEnglishPath}>Download CV (English)</a>
+            <a class="button secondary" href={profile.cvChinesePath}>CV (Chinese, old version)</a>
             {profile.transcripts.map((item) => (
-              <a class="button primary" href={item.href}>{item.label}</a>
+              <a class="button secondary" href={item.href}>{item.label}</a>
             ))}
           </div>
         </article>
@@ -200,7 +246,13 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
       {projectItems.length > 0 && (
         <div class="project-grid">
           {projectItems.map((project) => (
-            <article class={`project-card ${project.data.accent} reveal`}>
+            <article
+              class={`project-card ${project.data.accent} reveal clickable-card`}
+              data-card-href={`/projects/${project.id}/`}
+              role="link"
+              tabindex="0"
+              aria-label={`View ${project.data.title} details`}
+            >
               <a class="project-visual" href={`/projects/${project.id}/`} aria-label={`View ${project.data.title} details`}>
                 <img src={project.data.image.src} alt={project.data.image.alt} loading="lazy" />
                 <span>{project.data.year}</span>
@@ -232,7 +284,13 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
       {researchItems.length > 0 && (
         <div class="project-grid">
           {researchItems.map((research) => (
-            <article class={`project-card ${research.data.accent} reveal`}>
+            <article
+              class={`project-card ${research.data.accent} reveal clickable-card`}
+              data-card-href={`/research/${research.id}/`}
+              role="link"
+              tabindex="0"
+              aria-label={`View ${research.data.title} details`}
+            >
               <a class="project-visual" href={`/research/${research.id}/`} aria-label={`View ${research.data.title} details`}>
                 <img src={research.data.image.src} alt={research.data.image.alt} loading="lazy" />
                 <span>{research.data.year}</span>
@@ -253,6 +311,50 @@ const researchItems = portfolioItems.filter((item) => item.data.section === "res
               </div>
             </article>
           ))}
+        </div>
+      )}
+    </section>
+
+    <section class="content-section notes-section page-section" id="notes">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Notes</p>
+      </div>
+      {noteItems.length > 0 ? (
+        <div class="notes-grid">
+          {noteItems.map((note) => (
+            <article
+              class="note-card reveal clickable-card"
+              data-card-href={`/notes/${note.id}/`}
+              role="link"
+              tabindex="0"
+              aria-label={`Open ${note.data.title}`}
+            >
+              <div class="note-meta">
+                <span>{note.data.format}</span>
+              </div>
+              <p class="note-category">{note.data.category}</p>
+              <h3>{note.data.title}</h3>
+              <p>{note.data.summary}</p>
+              <div class="tag-row">
+                {note.data.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+              <a href={`/notes/${note.id}/`}>
+                Open note
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="notes-placeholder reveal">
+          <div class="notes-placeholder-copy">
+            <p class="notes-path">~/notes $ ls</p>
+            <h3>Notes collection in progress</h3>
+            <p>{notesInfo.intro}</p>
+          </div>
+          <div class="note-format-list" aria-label="Supported note formats">
+            <span><strong>PDF</strong> annotated course notes</span>
+            <span><strong>Notion</strong> living knowledge pages</span>
+          </div>
         </div>
       )}
     </section>

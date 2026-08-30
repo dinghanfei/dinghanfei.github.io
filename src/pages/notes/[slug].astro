@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import profile from "../../data/profile.json";
+
+type Note = CollectionEntry<"notes">;
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props as { note: Note };
+const { Content, headings } = await render(note);
+const lectureHeadings = headings.filter((heading) => heading.depth === 1);
+---
+
+<BaseLayout title={`${note.data.title} | Notes | ${profile.name}`} description={note.data.summary}>
+  <header class="site-header">
+    <a class="brand" href="/#about" aria-label={`${profile.name} home`}>
+      <span class="brand-mark">
+        <img src={profile.brandIcon} alt="" aria-hidden="true" />
+      </span>
+      <span>{profile.name}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/#about">About</a>
+      <a href="/#cv">CV</a>
+      <a href="/#projects">Project</a>
+      <a href="/#research">Research</a>
+      <a href="/#notes">Notes</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="sun" aria-hidden="true">☼</span>
+        <span class="moon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <article class="note-detail page-section">
+      <a class="back-link" href="/#notes">← Back to notes</a>
+
+      <header class="note-detail-hero reveal">
+        <div class="note-page-icon" aria-hidden="true">{note.data.icon}</div>
+        <div class="note-meta">
+          <span>{note.data.format}</span>
+        </div>
+        <p class="note-category">{note.data.category}</p>
+        <h1>{note.data.title}</h1>
+        <p class="lead">{note.data.summary}</p>
+        <div class="tag-row">
+          {note.data.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      </header>
+
+      <div class="note-layout">
+        <aside class="note-toc" aria-label="Table of contents">
+          <div class="note-toc-header">
+            <p>On this page</p>
+            <button
+              class="note-toc-toggle"
+              type="button"
+              aria-label="Hide table of contents"
+              data-note-toc-close
+            ></button>
+          </div>
+          <div class="note-toc-content">
+            <nav>
+              {lectureHeadings.map((heading) => (
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              ))}
+            </nav>
+          </div>
+        </aside>
+
+        <button
+          class="note-toc-open"
+          type="button"
+          aria-label="Show table of contents"
+          data-note-toc-open
+        ></button>
+
+        <div class="note-document">
+          <div class="note-document-bar" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <p>~/notes/{note.id}.md</p>
+          </div>
+          <div class="note-content">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© {new Date().getFullYear()} {profile.name}. Built with Astro and deployed on GitHub Pages.</p>
+  </footer>
+</BaseLayout>

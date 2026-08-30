@@ -8,36 +8,36 @@
       "detail": "Joined the Deep Intelligence Lab as an undergraduate member, focusing on foundational learning in deep learning. Engaged in technical reading, research-oriented learning, and academic discussions under the supervision of Prof. Rongsheng Li.",
       "image": {
         "src": "/experience/deep-intelligence-lab.png",
-        "alt": "AI research visualization for the Deep Intelligence Lab"
+        "alt": "Brain MRI segmentation research visualization"
       }
     },
     {
-      "period": "Jul. 2023",
-      "role": "Summer Research Participant, Computer Vision Program",
+      "period": "May 2023 - Jul. 2023",
+      "role": "Visual Computing Summer Workshop",
       "place": "National University of Singapore",
-      "detail": "Completed a Masked and Unmasked Face Recognition project with Machine Learning and OpenCV.",
+      "detail": "Developed an OpenCV-based recognition system for masked and unmasked faces, combining five SVM, KNN, and Random Forest decision branches through a rule-based decision scheme.",
       "image": {
         "src": "/experience/nus-summer-workshop.png",
-        "alt": "Computer vision program placeholder image"
+        "alt": "Visual Computing Summer Workshop at the National University of Singapore"
       }
     },
     {
-      "period": "Oct. 2021 - 2022",
-      "role": "Mechanical Design Member, EV Association",
+      "period": "Nov. 2021 - Sep. 2022",
+      "role": "Underwater Robotics Club",
       "place": "Harbin Engineering University",
-      "detail": "Contributed to mechanical structure design for intelligent vehicle and underwater robot projects as a member of the mechanical design group. Developed early hands-on engineering experience through team-based design and fabrication work.",
+      "detail": "Collaborated with a multidisciplinary robotics team and contributed to the structural design of underwater robotic systems, developing hands-on engineering experience and teamwork skills through practical projects.",
       "image": {
         "src": "/experience/ev2.jpg",
-        "alt": "Mechanical design placeholder image"
+        "alt": "Underwater robotics mechanical design experience"
       }
     }
   ],
   "education": [
     {
-      "role": "B.Eng. in Computer Science",
+      "role": "Bachelor of Engineering in Computer Science and Technology",
       "place": "College of Computer Science and Technology, Harbin Engineering University",
-      "period": "2022.09 - 2025.06",
-      "detail": "Initially admitted to the College of Materials Science and Technology in 2021, and later transferred to the College of Computer Science and Technology in 2022, ranking 2nd in the transfer evaluation."
+      "period": "Sep. 2021 - Jun. 2025",
+      "detail": "GPA: 90.65/100. Achieved scores of 90+ in 30 required courses, including 92+ in all mathematics-related courses. Initially admitted to the College of Materials Science and Technology in 2021, and later transferred to the College of Computer Science and Technology in 2022, ranking 2nd in the transfer evaluation."
     }
   ],
   "awardGroups": [
@@ -46,23 +46,19 @@
       "items": [
         {
           "year": "2024.07",
-          "title": "🥇First Prize, Mathematical Modeling League of Three Northeastern Provinces"
+          "title": "🥇Regional First Prize, Mathematical Modeling League of Three Northeastern Provinces (Top 18.52%); Team Leader / Primary Contributor"
         },
         {
           "year": "2024.05",
-          "title": "🥈Second Prize, Lanqiao Cup Software Competition, Provincial Division"
-        },
-        {
-          "year": "2023.07",
-          "title": "🥈Second Prize, Mathematical Modeling League of Three Northeastern Provinces"
+          "title": "🥈Provincial Second Prize, Lanqiao Cup Software Competition (Top 20%)"
         },
         {
           "year": "2022.10",
-          "title": "🥉Third Prize, National English Competition for College Students, Category C"
+          "title": "🥉National Third Prize, National English Competition for College Students, Category C (Top 8.6%)"
         },
         {
           "year": "2022.09",
-          "title": "🥇First Prize, China Undergraduate Mathematical Contest in Modeling, Heilongjiang Division"
+          "title": "🥇Provincial First Prize, China Undergraduate Mathematical Contest in Modeling (Top 0.6% among 49,000+ entries); Team Leader / Primary Contributor"
         }
       ]
     },
@@ -71,49 +67,51 @@
       "items": [
         {
           "year": "2025.06",
-          "title": "🏆Outstanding Undergraduate Thesis Award, Harbin Engineering University, 2025"
+          "title": "🏆Outstanding Undergraduate Thesis (Design), Class of 2025; one of 11 recipients across three schools"
         },
         {
           "year": "Multiple Years",
-          "title": "🏅Outstanding Student Scholarship, Harbin Engineering University"
+          "title": "🏅Outstanding Student Scholarship, Harbin Engineering University; five-time recipient, awarded to the top 8-15% of students"
         },
         {
           "year": "2021 - 2022",
-          "title": "🎖️Merit Student, Harbin Engineering University"
+          "title": "🎖️Merit Student, Harbin Engineering University; university-level honor awarded to the top 6% of students"
         }
       ]
     }
   ],
   "skills": [
     {
-      "label": "Programming",
-      "icon": "💻",
-      "items": "C/C++, Python, Java"
+      "label": "Programming Languages",
+      "items": [
+        { "label": "C", "icon": "/icons/skills/c.svg", "color": "#A8B9CC" },
+        { "label": "C++", "icon": "/icons/skills/cplusplus.svg", "color": "#659AD2" },
+        { "label": "Python", "icon": "/icons/skills/python.svg", "color": "#FFD43B" },
+        { "label": "Java", "icon": "/icons/skills/java.svg", "color": "#F89820" }
+      ]
     },
     {
-      "label": "Tools & Platforms",
-      "icon": "🧰",
-      "items": "Git, Docker, Linux, MySQL, Maven"
-    },
-    {
-      "label": "Frameworks & Libraries",
-      "icon": "🔥",
-      "items": "PyTorch, OpenCV, NumPy, pandas, scikit-learn, Matplotlib, Flask"
-    },
-    {
-      "label": "Languages",
-      "icon": "🌐",
-      "items": "English (academic reading & writing)"
-    },
-    {
-      "label": "Strengths",
-      "icon": "✨",
-      "items": "Logical thinking, efficient task organization, team leadership, collaboration, and communication skills."
-    },
-    {
-      "label": "Interests",
-      "icon": "🏊",
-      "items": "Swimming, badminton, fitness training, LEGO model building"
+      "label": "Frameworks & Tools",
+      "items": [
+        { "label": "PyTorch", "icon": "/icons/skills/pytorch.svg", "color": "#EE4C2C" },
+        { "label": "OpenCV", "icon": "/icons/skills/opencv.svg", "color": "#5C3EE8" },
+        { "label": "scikit-learn", "icon": "/icons/skills/scikitlearn.svg", "color": "#F7931E" },
+        { "label": "LangGraph", "icon": "/icons/skills/langgraph.svg", "color": "#9CDCFE" },
+        { "label": "FastAPI", "icon": "/icons/skills/fastapi.svg", "color": "#009688" },
+        { "label": "Chroma", "icon": "/icons/skills/chroma.svg", "color": "#FFCC4D" },
+        { "label": "Git", "icon": "/icons/skills/git.svg", "color": "#F05032" },
+        { "label": "Docker", "icon": "/icons/skills/docker.svg", "color": "#2496ED" },
+        { "label": "Linux", "icon": "/icons/skills/linux.svg", "color": "#FCC624" }
+      ]
     }
+  ],
+  "interests": [
+    { "label": "Swimming", "icon": "🏊" },
+    { "label": "Badminton", "icon": "🏸" },
+    { "label": "Fitness Training", "icon": "🏋️" },
+    { "label": "LEGO Model Building", "icon": "🧱" },
+    { "label": "Rubik's Cube", "icon": "🧩" },
+    { "label": "Detective Fiction", "icon": "🔍" },
+    { "label": "RustLake", "icon": "🎮" }
   ]
 }

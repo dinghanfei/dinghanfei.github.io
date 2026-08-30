@@ -159,3 +159,39 @@ const requestScrollUpdate = () => {
 window.addEventListener("scroll", requestScrollUpdate, { passive: true });
 window.addEventListener("resize", requestScrollUpdate);
 updateScrollEffects();
+
+document.querySelectorAll(".note-detail").forEach((detail) => {
+  const layout = detail.querySelector(".note-layout");
+  const toc = detail.querySelector(".note-toc");
+  const closeButton = detail.querySelector("[data-note-toc-close]");
+  const openButton = detail.querySelector("[data-note-toc-open]");
+
+  if (!layout || !toc || !closeButton || !openButton) return;
+
+  const setCollapsed = (isCollapsed) => {
+    toc.classList.toggle("is-collapsed", isCollapsed);
+    layout.classList.toggle("is-toc-collapsed", isCollapsed);
+    detail.classList.toggle("is-toc-collapsed", isCollapsed);
+  };
+
+  closeButton.addEventListener("click", () => setCollapsed(true));
+  openButton.addEventListener("click", () => setCollapsed(false));
+});
+
+document.querySelectorAll("[data-card-href]").forEach((card) => {
+  const navigate = () => {
+    const href = card.getAttribute("data-card-href");
+    if (href) window.location.href = href;
+  };
+
+  card.addEventListener("click", (event) => {
+    if (event.target.closest("a, button, input, select, textarea")) return;
+    navigate();
+  });
+
+  card.addEventListener("keydown", (event) => {
+    if (event.target !== card || (event.key !== "Enter" && event.key !== " ")) return;
+    event.preventDefault();
+    navigate();
+  });
+});

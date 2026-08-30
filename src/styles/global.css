@@ -306,7 +306,8 @@ main,
 }
 
 main {
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .section-grid,
@@ -646,6 +647,18 @@ h4 {
   transform: translateY(-2px) scale(1.035);
 }
 
+.button.secondary {
+  border-color: var(--line);
+  background: var(--editor-2);
+  color: var(--text);
+}
+
+.button.secondary:hover {
+  border-color: color-mix(in srgb, var(--accent), transparent 42%);
+  background: var(--surface-strong);
+  color: var(--text-strong);
+}
+
 .document-actions {
   display: flex;
   flex-wrap: wrap;
@@ -765,6 +778,12 @@ h4 {
   gap: 0.85rem;
 }
 
+.cv-dual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: 0.85rem;
+}
+
 .cv-panel {
   padding: clamp(0.8rem, 1.5vw, 1.05rem);
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
@@ -797,6 +816,11 @@ h4 {
   border-radius: 8px;
   background: var(--editor-2);
   object-fit: cover;
+}
+
+.experience-image.lab-image {
+  aspect-ratio: 3 / 2;
+  object-position: center;
 }
 
 .experience-copy {
@@ -933,6 +957,148 @@ h4 {
   object-fit: contain;
 }
 
+.skill-category-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.skill-category {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.7rem;
+  background: var(--editor-2);
+  transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease;
+}
+
+.skill-category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.65rem;
+}
+
+.skill-category-title h4 {
+  margin: 0;
+}
+
+.skill-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.25rem, 1fr));
+  gap: 0.5rem;
+}
+
+.skill-card {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 3.55rem;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem;
+  background: color-mix(in srgb, var(--editor), transparent 14%);
+  transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease;
+}
+
+.skill-logo {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--skill-color), transparent 50%);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--skill-color), transparent 86%);
+}
+
+.skill-logo::before {
+  content: "";
+  width: 1.05rem;
+  height: 1.05rem;
+  background: var(--skill-color);
+  -webkit-mask: var(--skill-icon) center / contain no-repeat;
+  mask: var(--skill-icon) center / contain no-repeat;
+}
+
+.skill-card strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--text-strong);
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.interest-card {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 3.55rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.65rem;
+  background: var(--editor-2);
+  transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease;
+}
+
+.interest-card > span {
+  font-size: 1.05rem;
+}
+
+.interest-card strong {
+  color: var(--text-strong);
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.document-panel {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.document-panel-copy {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.document-panel-copy h3 {
+  margin-bottom: 0.3rem;
+}
+
+.document-panel-copy p {
+  max-width: 44ch;
+  margin-bottom: 0;
+  font-size: 0.82rem;
+}
+
+.document-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 42%);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent), transparent 84%);
+}
+
+.document-icon img {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.document-panel .document-actions {
+  justify-content: flex-end;
+}
+
 .tag-row,
 .project-links {
   flex-wrap: wrap;
@@ -964,6 +1130,17 @@ h4 {
   grid-template-rows: 9rem 1fr;
   overflow: hidden;
   transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:focus-visible {
+  border-color: var(--accent-strong);
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent), transparent 78%), var(--shadow);
 }
 
 .project-card:hover {
@@ -1053,6 +1230,488 @@ h4 {
 
 .project-links a::after {
   content: " ->";
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.note-card,
+.notes-placeholder {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--editor), transparent 3%);
+  box-shadow: var(--shadow);
+}
+
+.note-card {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.9rem;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.note-card p {
+  color: var(--muted);
+}
+
+.note-category {
+  margin-bottom: 0.2rem;
+  color: var(--purple) !important;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.note-card > a {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.note-card > a::after {
+  content: " ->";
+}
+
+.note-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.note-meta span {
+  border: 1px solid color-mix(in srgb, var(--purple), transparent 58%);
+  border-radius: 5px;
+  padding: 0.2rem 0.38rem;
+  color: var(--purple);
+}
+
+.notes-placeholder {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: 1rem;
+  align-items: center;
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.notes-placeholder-copy h3 {
+  margin-bottom: 0.45rem;
+  font-size: 1.05rem;
+}
+
+.notes-placeholder-copy > p:last-child {
+  max-width: 68ch;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.notes-path {
+  margin-bottom: 0.65rem;
+  color: var(--green);
+  font-size: 0.78rem;
+}
+
+.note-format-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.note-format-list span {
+  display: grid;
+  gap: 0.3rem;
+  min-height: 4rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.65rem;
+  background: var(--editor-2);
+  color: var(--muted);
+  font-size: 0.75rem;
+  transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease;
+}
+
+.note-format-list strong {
+  color: var(--accent-strong);
+  font-size: 0.86rem;
+}
+
+.note-detail {
+  width: min(100% - 2rem, 1440px);
+  margin: 0 auto;
+  padding: 1.75rem 0 3rem 18rem;
+  transition: padding-left 240ms ease;
+}
+
+.note-detail.is-toc-collapsed {
+  padding-left: 0;
+}
+
+.note-detail-hero {
+  max-width: 880px;
+  margin-bottom: 1.4rem;
+}
+
+.note-page-icon {
+  display: grid;
+  width: 3.45rem;
+  height: 3.45rem;
+  margin-bottom: 0.85rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 38%);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent), transparent 82%);
+  color: var(--accent-strong);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.note-detail-hero .note-meta {
+  justify-content: flex-start;
+  margin-bottom: 0.7rem;
+}
+
+.note-detail-hero h1 {
+  max-width: 28ch;
+  margin: 0 0 0.6rem;
+  color: var(--text-strong);
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.note-layout {
+  display: block;
+}
+
+.note-document {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--editor), transparent 2%);
+  box-shadow: var(--shadow);
+}
+
+.note-document-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--editor-2);
+}
+
+.note-document-bar > span {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 50%;
+}
+
+.note-document-bar > span:nth-child(1) {
+  background: #f85149;
+}
+
+.note-document-bar > span:nth-child(2) {
+  background: #d29922;
+}
+
+.note-document-bar > span:nth-child(3) {
+  background: #3fb950;
+}
+
+.note-document-bar p {
+  min-width: 0;
+  overflow: hidden;
+  margin: 0 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-content {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: clamp(1rem, 3.5vw, 2.2rem);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: clamp(0.84rem, 1.25vw, 0.96rem);
+  line-height: 1.72;
+  transition: max-width 240ms ease;
+}
+
+.note-detail.is-toc-collapsed .note-content {
+  max-width: 1120px;
+}
+
+.note-content > :first-child {
+  margin-top: 0;
+}
+
+.note-content h1,
+.note-content h2,
+.note-content h3,
+.note-content h4 {
+  scroll-margin-top: 5.5rem;
+  color: var(--text-strong);
+}
+
+.note-content h1 {
+  margin: 2.6rem 0 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.65rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.22;
+}
+
+.note-content h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: clamp(1.12rem, 2vw, 1.45rem);
+}
+
+.note-content h3 {
+  margin: 1.6rem 0 0.55rem;
+  color: var(--accent-strong);
+  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+}
+
+.note-content h4 {
+  margin: 1.35rem 0 0.45rem;
+  color: var(--purple);
+  font-size: 0.95rem;
+}
+
+.note-content p,
+.note-content ul,
+.note-content ol,
+.note-content blockquote,
+.note-content pre,
+.note-content table {
+  margin: 0.7rem 0 1rem;
+}
+
+.note-content ul,
+.note-content ol {
+  padding-left: 1.45rem;
+}
+
+.note-content li + li {
+  margin-top: 0.32rem;
+}
+
+.note-content li::marker {
+  color: var(--accent);
+}
+
+.note-content a {
+  color: var(--accent-strong);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent), transparent 52%);
+}
+
+.note-content code:not(pre code) {
+  border: 1px solid color-mix(in srgb, var(--purple), transparent 70%);
+  border-radius: 5px;
+  padding: 0.12rem 0.34rem;
+  background: color-mix(in srgb, var(--purple), transparent 91%);
+  color: var(--text-strong);
+  font-size: 0.86em;
+}
+
+.note-content pre {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  background: #0d1117 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.note-content pre code {
+  font-family: var(--mono);
+}
+
+.note-content blockquote {
+  border-left: 3px solid var(--purple);
+  border-radius: 0 7px 7px 0;
+  padding: 0.75rem 0.9rem;
+  background: color-mix(in srgb, var(--purple), transparent 91%);
+  color: var(--muted);
+}
+
+.note-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.note-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.1rem auto 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+}
+
+.note-content table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.note-content th,
+.note-content td {
+  border: 1px solid var(--line);
+  padding: 0.48rem 0.62rem;
+  text-align: left;
+}
+
+.note-content th {
+  background: var(--editor-2);
+  color: var(--text-strong);
+}
+
+.note-toc {
+  position: fixed;
+  top: 5.4rem;
+  bottom: 1.25rem;
+  left: max(1rem, calc((100vw - 1440px) / 2));
+  z-index: 20;
+  width: 16rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 0.75rem;
+  background: color-mix(in srgb, var(--sidebar), transparent 4%);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.34);
+  contain: layout paint;
+  transform: translateZ(0);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 180ms ease, transform 240ms ease, visibility 0s linear;
+}
+
+.note-toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+
+.note-toc-header p {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.note-toc-toggle {
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--editor-2);
+  color: var(--accent-strong);
+  transition: border-color 170ms ease, background 170ms ease, box-shadow 170ms ease, transform 170ms ease;
+}
+
+.note-toc-toggle::before {
+  content: "‹";
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.note-toc-toggle:hover {
+  border-color: color-mix(in srgb, var(--accent), transparent 35%);
+  background: var(--surface-strong);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+}
+
+.note-toc-content {
+  max-height: calc(100% - 2.7rem);
+  overflow-y: auto;
+  padding-right: 0.2rem;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.note-toc.is-collapsed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(calc(-100% - 1rem), 0, 0);
+  transition: opacity 160ms ease, transform 220ms ease, visibility 0s linear 220ms;
+}
+
+.note-toc-open {
+  position: fixed;
+  top: 5.4rem;
+  left: max(1rem, calc((100vw - 1440px) / 2));
+  z-index: 21;
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--sidebar), transparent 4%);
+  color: var(--accent-strong);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-0.5rem);
+  transition: opacity 160ms ease, transform 200ms ease, visibility 0s linear 200ms;
+}
+
+.note-toc-open::before {
+  content: "☰";
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.note-detail.is-toc-collapsed .note-toc-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition: opacity 180ms ease 100ms, transform 220ms ease 100ms, visibility 0s linear;
+}
+
+.note-toc nav {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.note-toc a {
+  border-radius: 5px;
+  padding: 0.34rem 0.45rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  transition: background 170ms ease, color 170ms ease, transform 170ms ease;
+}
+
+.note-toc a:hover {
+  background: var(--editor-2);
+  color: var(--accent-strong);
+  transform: translateX(3px);
 }
 
 .project-detail {
@@ -1251,6 +1910,9 @@ button:active {
 
   .award-row:hover,
   .skill-pill:hover,
+  .skill-card:hover,
+  .interest-card:hover,
+  .note-format-list span:hover,
   .result-list li:hover {
     border-color: color-mix(in srgb, var(--accent), transparent 46%);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.36);
@@ -1262,6 +1924,12 @@ button:active {
     box-shadow: 0 9px 20px rgba(0, 0, 0, 0.3);
     color: var(--text-strong);
     transform: translateY(-2px) scale(1.045);
+  }
+
+  .note-card:hover {
+    border-color: color-mix(in srgb, var(--accent), transparent 38%);
+    box-shadow: 0 28px 72px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px) scale(1.012);
   }
 
   .project-detail-image:hover {
@@ -1324,8 +1992,52 @@ button:active {
 
   .hero,
   .project-grid,
+  .notes-grid,
   .project-detail-hero {
     grid-template-columns: 1fr;
+  }
+
+  .cv-dual-grid,
+  .document-panel,
+  .notes-placeholder {
+    grid-template-columns: 1fr;
+  }
+
+  .note-detail,
+  .note-detail.is-toc-collapsed {
+    padding-left: 0;
+  }
+
+  .note-toc {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-bottom: 0.9rem;
+    transform: none;
+  }
+
+  .note-toc.is-collapsed {
+    display: none;
+    transform: none;
+  }
+
+  .note-toc-open {
+    position: relative;
+    inset: auto;
+    display: none;
+    margin-bottom: 0.9rem;
+  }
+
+  .note-detail.is-toc-collapsed .note-toc-open {
+    display: grid;
+  }
+
+  .note-toc-content {
+    max-height: 22rem;
+  }
+
+  .document-panel .document-actions {
+    justify-content: flex-start;
   }
 
   .hero {
@@ -1352,6 +2064,11 @@ button:active {
 
   .contact-dock {
     width: 100%;
+  }
+
+  .interest-grid,
+  .note-format-list {
+    grid-template-columns: 1fr;
   }
 
   .dock-button {
